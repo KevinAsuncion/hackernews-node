@@ -3,12 +3,14 @@ const { Prisma } = require("prisma-binding");
 const Query = require("./resolvers/Query");
 const Mutation = require("./resolvers/Mutation");
 const AuthPayload = require("./resolvers/AuthPayload");
+const Subscription = require("./resolvers/Subscription");
 
 //Define resolvers
 const resolvers = {
   Query,
   Mutation,
-  AuthPayload
+  AuthPayload,
+  Subscription,
 };
 
 //Bundle resolver,schema, and prisma with GraphQLServer - tells which operations are accepted and how to be resolved
