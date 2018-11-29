@@ -4,6 +4,7 @@ const Query = require("./resolvers/Query");
 const Mutation = require("./resolvers/Mutation");
 const AuthPayload = require("./resolvers/AuthPayload");
 const Subscription = require("./resolvers/Subscription");
+const Feed = require("./resolvers/Feed");
 
 //Define resolvers
 const resolvers = {
@@ -11,6 +12,7 @@ const resolvers = {
   Mutation,
   AuthPayload,
   Subscription,
+  Feed
 };
 
 //Bundle resolver,schema, and prisma with GraphQLServer - tells which operations are accepted and how to be resolved
