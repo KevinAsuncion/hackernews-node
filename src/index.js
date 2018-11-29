@@ -1,27 +1,14 @@
 const { GraphQLServer } = require("graphql-yoga");
 const { Prisma } = require("prisma-binding");
+const Query = require("./resolvers/Query");
+const Mutation = require("./resolvers/Mutation");
+const AuthPayload = require("./resolvers/AuthPayload");
 
 //Define resolvers
 const resolvers = {
-  Query: {
-    info: () => `This is the API of a Hackernews Clone`,
-    feed: (root, args, context, info) => {
-      return context.db.query.links({}, info);
-    }
-  },
-  Mutation: {
-    post: (root, args, context, info) => {
-      return context.db.mutation.createLink(
-        {
-          data: {
-            url: args.url,
-            description: args.description
-          }
-        },
-        info
-      );
-    }
-  }
+  Query,
+  Mutation,
+  AuthPayload
 };
 
 //Bundle resolver,schema, and prisma with GraphQLServer - tells which operations are accepted and how to be resolved
